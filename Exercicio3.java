@@ -21,16 +21,16 @@ b) Podem existir dias sem faturamento, como nos finais de semana e feriados. Est
     public static void main(String[] args) throws FileNotFoundException {
         Gson gson = new Gson();
 
-         FileReader reader =  new FileReader("faturamento.json");
+         FileReader reader =  new FileReader("faturamentos.json");
 
             JsonObject objetoJson = gson.fromJson(reader, JsonObject.class);
-            JsonArray arrayDeFaturamento = objetoJson.getAsJsonArray("faturamento_diario");
+            JsonArray arrayDeFaturamento = objetoJson.getAsJsonArray("dias");
 
             List<Double> listaDeFaturamento = new ArrayList<>();
 
             for(int i = 0; i < arrayDeFaturamento.size(); i++) {
                 JsonObject faturamentoDiario = arrayDeFaturamento.get(i).getAsJsonObject();
-                double valor = faturamentoDiario.get("faturamento").getAsDouble();
+                double valor = faturamentoDiario.get("valor").getAsDouble();
                 if (valor > 0) {
                     listaDeFaturamento.add(valor);
                 }

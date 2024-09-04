@@ -23,7 +23,6 @@ estado teve dentro do valor total mensal da distribuidora. */
         double total = estadoEs+estadoSp+estadoRj+estadoMg+outrosEstados; //180759.98
         DecimalFormat formatador = new DecimalFormat("#.00"); //Formatador para imprimir 2 numeros depois da virgula
 
-
         double percentual = (estadoSp/total) * 100;
         System.out.println("Porcentagem que representa o estado de SP: " + formatador.format(percentual) + "%");
         percentual = (estadoRj/total) * 100;
